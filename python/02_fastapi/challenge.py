@@ -21,8 +21,9 @@ def repeat(word: str = "안녕", count: int = 1):
 
 @app.post("/introduce")
 def introduce(data: dict):
-    return f"message : {data['name']}님은 {data['interest']}에 관심이 있습니다"
-
+    return {
+        "message": f"{data['name']}님은 {data['interest']}에 관심이 있습니다"
+    }
 @app.get("/length/{text}")
 def length(text):
     return {"length": len(text)}

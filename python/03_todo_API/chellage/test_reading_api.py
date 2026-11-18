@@ -79,7 +79,7 @@ def test_update_book():
     res = client.post("/books", json={"title": "리팩토링", "pages": 400})
     book_id = res.json()["id"]
 
-    # 수정 (PUT) - title, pages, done(또는 read) 세 값 전달
+    # 수정 (PUT) - title, pages, read 세 값 전달
     update_data = {"title": "리팩토링 2판", "pages": 450, "read": True}
     update_res = client.put(f"/books/{book_id}", json=update_data)
     assert update_res.status_code == 200
